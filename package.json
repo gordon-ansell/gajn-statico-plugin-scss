@@ -1,0 +1,33 @@
+{
+	"name": "gajn-statico-plugin-scss",
+	"version": "0.1.0",
+	"description": "SCSS plugin for Statico SSG.",
+	"homepage": "https://gordonansell.com/statico",
+	"license": "MIT",
+	"minimum-stability": "dev",
+	"main": ".statico.js",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/gordon-ansell/gajn-statico-plugin-scss"
+	},
+	"authors": [
+		{
+			"name": "Gordon Ansell",
+			"email": "contact@gordonansell.com",
+			"url": "https://gordonansell.com"
+		}
+	],
+	"files": [
+		"src/"
+	],
+	"dependencies": {
+		"autoprefixer": "*",
+		"gajn-framework": "../../framework",
+		"node-sass": "*",
+		"postcss": "*"
+	},
+	"devDependencies": {},
+	"engines": {
+		"node": ">=12"
+	}
+}

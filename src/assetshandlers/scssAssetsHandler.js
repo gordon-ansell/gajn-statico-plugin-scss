@@ -12,6 +12,9 @@ const sass = require('node-sass');
 const postcss = require('postcss');
 const autoprefixer = require('autoprefixer');
 const fs = require('fs');
+const debug = require('debug')('Statico:plugin:scss:ScssAssetHandler'),
+      debugf = require('debug')('FStatico:plugin:scss:ScssAssetHandler');
+
 
 class StaticoScssAssetsHandlerError extends GAError {}
  
@@ -48,7 +51,7 @@ class StaticoScssAssetsHandlerError extends GAError {}
 
         let fp = filePath.replace(this.config.sitePath, '');
         let op = path.join(this.config.outputPath, userOptions.output, path.basename(fp, path.extname(fp)) + '.css');
-        syslog.trace(`SCSS template handler is processing file: ${fp} => ${op}`, 'AssetsHandler:Scss');
+        debug(`SCSS template handler is processing file: ${fp} => ${op}`);
 
         engineOptions.outFile = op;
 
@@ -70,7 +73,7 @@ class StaticoScssAssetsHandlerError extends GAError {}
                 result.warnings().forEach((warn) => {
                     syslog.warning(warn.toString())
                 });
-                syslog.trace(`Autoprefixing CSS for: ${fp}.`, 'AssetsHandler:Scss');
+                debug(`Autoprefixing CSS for: ${fp}.`);
                 data = result.css;
                 return data;
             }).then((data) => {
@@ -87,7 +90,7 @@ class StaticoScssAssetsHandlerError extends GAError {}
         }     
 
         let opi = op.replace(this.config.sitePath, '');
-        syslog.debug(`Wrote ${fp} ===> ${opi}.`, 'AssetsHandler:Scss');
+        debug(`Wrote ${fp} ===> ${opi}.`);
     }
  
   }

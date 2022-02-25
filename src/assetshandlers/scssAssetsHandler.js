@@ -13,7 +13,8 @@ const postcss = require('postcss');
 const autoprefixer = require('autoprefixer');
 const fs = require('fs');
 const debug = require('debug')('Statico:plugin:scss:ScssAssetHandler'),
-      debugf = require('debug')('FStatico:plugin:scss:ScssAssetHandler');
+      debugf = require('debug')('Full.Statico:plugin:scss:ScssAssetHandler'),
+      debugd = require('debug')('DryRun.Statico:plugin:scss:ScssAssetHandler');
 
 
 class StaticoScssAssetsHandlerError extends GAError {}
@@ -81,12 +82,15 @@ class StaticoScssAssetsHandlerError extends GAError {}
             })    
         }
 
-        fsutils.mkdirRecurse(path.dirname(op));
-        fs.writeFileSync(op, compiled.css.toString());
+        if (this.config.processArgs.argv.dryrun) {
+            debugd(`Write: %s`, op);
+        } else {
+            fsutils.mkdirRecurse(path.dirname(op));
+            fs.writeFileSync(op, compiled.css.toString());
 
-
-        if (!fs.existsSync(op)) {
-            throw new StaticoScssAssetsHandlerError(`For some reason the generated CSS file '${op}' does not exist.`);
+            if (!fs.existsSync(op)) {
+                throw new StaticoScssAssetsHandlerError(`For some reason the generated CSS file '${op}' does not exist.`);
+            }
         }     
 
         let opi = op.replace(this.config.sitePath, '');

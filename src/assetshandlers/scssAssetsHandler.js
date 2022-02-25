@@ -83,7 +83,7 @@ class StaticoScssAssetsHandlerError extends GAError {}
         }
 
         if (this.config.processArgs.argv.dryrun) {
-            debugd(`Write: %s`, op);
+            debugd(`Write: %s`, op.replace(this.config.sitePath, ''));
         } else {
             fsutils.mkdirRecurse(path.dirname(op));
             fs.writeFileSync(op, compiled.css.toString());

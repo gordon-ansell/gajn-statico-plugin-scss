@@ -6,7 +6,7 @@
  */
 'use strict';
 
-const { string, syslog, GAError } = require('gajn-framework');
+const { string, syslog, GAError } = require('js-framework');
 const ScssAssetsHandler = require('./src/assetshandlers/scssAssetsHandler');
 
 module.exports = function(config, options = {}) {

@@ -6,7 +6,7 @@
  */
 'use strict';
 
-const { fsutils, GAError, syslog } = require('gajn-framework');
+const { fsutils, GAError, syslog } = require('js-framework');
 const path = require('path');
 const sass = require('node-sass');
 const postcss = require('postcss');

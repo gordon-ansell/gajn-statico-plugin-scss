@@ -22,7 +22,7 @@
 	],
 	"dependencies": {
 		"autoprefixer": "*",
-		"gajn-framework": "../../framework",
+		"js-framework": "../../framework",
 		"node-sass": "*",
 		"postcss": "*"
 	},

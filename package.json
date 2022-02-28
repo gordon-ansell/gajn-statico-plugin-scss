@@ -25,6 +25,7 @@
         "debug": "*",
 		"js-framework": "gordon-ansell/js-framework",
 		"node-sass": "*",
+        "sass": "*",
 		"postcss": "*"
 	},
 	"devDependencies": {},

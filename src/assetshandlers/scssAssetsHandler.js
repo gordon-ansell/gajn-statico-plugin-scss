@@ -8,7 +8,8 @@
 
 const { fsutils, GAError, syslog } = require('js-framework');
 const path = require('path');
-const sass = require('node-sass');
+//const sass = require('node-sass');
+const sass = require('sass');
 const postcss = require('postcss');
 const autoprefixer = require('autoprefixer');
 const fs = require('fs');

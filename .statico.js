@@ -8,6 +8,7 @@
 
 const { string, syslog, GAError } = require('js-framework');
 const ScssAssetsHandler = require('./src/assetshandlers/scssAssetsHandler');
+const pack = require('./package.json');
 
 module.exports = function(config, options = {}) {
 
@@ -26,6 +27,8 @@ module.exports = function(config, options = {}) {
 
     config.assetHandlers.scss = scssCfg;
     config.assetHandlers.addHandler('scss', new ScssAssetsHandler(config), ['scss']);
+
+    syslog.notice(`Statico SCSS plugin version ${pack.version} loaded.`);
 
 
     /*

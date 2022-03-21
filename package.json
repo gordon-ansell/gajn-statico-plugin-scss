@@ -21,11 +21,11 @@
 		"src/"
 	],
 	"dependencies": {
-		"autoprefixer": "*",
-        "debug": "*",
+		"autoprefixer": "10.4.2",
+        "debug": "4.3.4",
 		"js-framework": "gordon-ansell/js-framework",
-        "sass": "*",
-		"postcss": "*"
+        "sass": "1.49.9",
+		"postcss": "8.4.12"
 	},
 	"devDependencies": {},
 	"engines": {
